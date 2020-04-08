@@ -1,12 +1,12 @@
 $(document).ready(function () {
   let [row = null, col = null] = getArgs()
 
-  if (row == null || col == null) {
+  if (!isArgsValid(row, col)) {
     // Throw error
-    alert("Row and col required!")
+    alert("Row or col invalid!")
+  } else {
+    createTable(row, col)
   }
-
-  createTable(row, col)
 })
 
 // Get number of rows and columns from url
@@ -170,4 +170,20 @@ function editText(form) {
   // show input form elements
   inputText.show()
   saveBut.show()
+}
+
+function isArgsValid(rowNum, columnNum) {
+  if (rowNum == null || columnNum == null)
+    return false
+
+  if (!$.isNumeric(rowNum) || !$.isNumeric(columnNum))
+    return false
+
+  if (rowNum <= 0 || rowNum > 999)
+    return false
+
+  if (columnNum <= 0 || columnNum > 999)
+    return false
+
+  return true
 }
