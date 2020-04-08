@@ -69,13 +69,14 @@ function tableData() {
   saveBut.attr("type", "button")
   saveBut.attr("class", "btn btn-success save-button")
   saveBut.html("Save")
-  saveBut.click(function () { saveText(saveBut.parent("form")) })
+  saveBut.click(function () { saveText(form) })
 
   form.append(saveBut)
 
   // text placement
   let textPlacement = $("<p>")
   textPlacement.attr("class", "text-placement")
+  textPlacement.click(function () { editText(form) })
   textPlacement.hide()
 
   form.append(textPlacement)
@@ -85,7 +86,7 @@ function tableData() {
   delBut.attr("type", "button")
   delBut.attr("class", "btn btn-danger delete-button")
   delBut.html("Delete")
-  delBut.click(function () { deleteText(delBut.parent("form")) })
+  delBut.click(function () { deleteText(form) })
   delBut.hide()
 
   form.append(delBut)
@@ -146,6 +147,25 @@ function deleteText(form) {
 
   // clean input textarea
   inputText.val("")
+
+  // show input form elements
+  inputText.show()
+  saveBut.show()
+}
+
+// Hide delete form and show input form with current text
+function editText(form) {
+  // get delete form element
+  let textPlacement = form.find(".text-placement")
+  let delBut = form.find(".delete-button")
+
+  // hide delete form elements
+  textPlacement.hide()
+  delBut.hide()
+
+  // get input form elements
+  let inputText = form.find(".text-input")
+  let saveBut = form.find(".save-button")
 
   // show input form elements
   inputText.show()
