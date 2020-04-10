@@ -7,6 +7,14 @@ $(document).ready(function () {
   } else {
     createTable(row, col)
   }
+
+  // Set event handlers
+  $("#tableStyleCard form").change(function () { controlButtonUpdate() })
+  $("#applyStyleBtn").click(function () { changeTableStyle() })
+
+  $("#applyCaptionBtn").click(function () { changeTableCaption() })
+
+
 })
 
 // Get number of rows and columns from url
@@ -68,7 +76,7 @@ function tableData() {
   let saveBut = $("<button>")
   saveBut.attr("type", "button")
   saveBut.attr("class", "btn btn-success save-button")
-  saveBut.html("Save")
+  saveBut.text("Save")
   saveBut.click(function () { saveText(form) })
 
   form.append(saveBut)
@@ -85,7 +93,7 @@ function tableData() {
   let delBut = $("<button>")
   delBut.attr("type", "button")
   delBut.attr("class", "btn btn-danger delete-button")
-  delBut.html("Delete")
+  delBut.text("Delete")
   delBut.click(function () { deleteText(form) })
   delBut.hide()
 
@@ -122,7 +130,7 @@ function saveText(form) {
   let delBut = form.find(".delete-button")
 
   // set new text
-  textPlacement.html(inputText.val())
+  textPlacement.text(inputText.val())
 
 
   // show delete form elements
@@ -187,4 +195,50 @@ function isArgsValid(rowNum, columnNum) {
     return false
 
   return true
+}
+
+// Update button caption with actual form fields info
+function controlButtonUpdate() {
+  let form = $("#tableStyleCard form")
+  let button = $("#applyStyleBtn")
+
+  let width = form.find("input").val()
+  let style = form.find('select').val()
+
+  let buttonCaption = "Apply"
+
+  if (!!width) {
+    buttonCaption += ` ${width}px`
+  }
+
+  if (style != "default") {
+    if (buttonCaption == "Apply")
+      buttonCaption += ` border ${style}`
+    else
+      buttonCaption += ` and border ${style}`
+  }
+
+  button.text(buttonCaption)
+}
+
+// Apply new table style settings
+function changeTableStyle() {
+  let form = $("#tableStyleCard form")
+
+  let width = form.find("input").val()
+  let style = form.find('select').val()
+
+
+  if (!!width) {
+    $("#datatable").css({ "width": width })
+  }
+
+  if (style != "default") {
+    $("#datatable").css({ "border": style })
+  }
+}
+
+// Change table caption header
+function changeTableCaption() {
+  $("#datatable caption h1").text($("#tableCaptionCard input").val())
 }

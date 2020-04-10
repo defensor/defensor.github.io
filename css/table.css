@@ -3,3 +3,27 @@
 .nav-link{ margin-right: 1em !important;}
 /*.nav-link:hover{background: #444a50; color:#343a40}*/
 .navbar-collapse{justify-content: flex-end;}
+
+/* Control panel */
+.control-panel{
+  margin: 4em 0;
+  position: relative;
+}
+
+.control-panel h1{
+  margin: 2em;
+}
+
+.control-panel .card{
+  box-shadow: 0 0 20px #ccc;
+  margin: 0 0 2em;
+}
+
+.control-panel .card-body{
+  padding: 1em;
+}
+
+.control-panel .card .card-footer .description{
+  font-size: 0.7em;
+  margin: 1em 0 0;
+}

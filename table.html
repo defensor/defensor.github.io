@@ -23,7 +23,7 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-4">
+      <ul class="navbar-nav ml-auto">
         <li class="nav-item">
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
@@ -36,18 +36,146 @@
 
 
   <!-- Data table -->
-  <table class="table table-bordered table-responsive" id="datatable">
-    <caption>
-      <h1>Без заголовка</h1>
-    </caption>
-    <thead class="thead-dark">
-      <tr></tr>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
+  <div class="datatable">
+    <table class="table table-bordered table-responsive" id="datatable">
+      <caption>
+        <h1>Без заголовка</h1>
+      </caption>
+      <thead class="thead-dark">
+        <tr></tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
 
   <!-- Control panel -->
+  <div class="control-panel">
+    <div class="container">
+      <h1 class="text-center">Control Panel</h1>
+      <div class="row">
+        <!-- Style card -->
+        <div class="col-lg-4 col-md-4 col-sm-12">
+          <div class="card" id="tableStyleCard">
+            <div class="card-body">
+              <h4 class="card-title">Change border</h4>
+              <form>
+                <div class="form-group">
+                  <label for="tableWidthControl">Table width</label>
+                  <input type="number" class="form-control" id="tableWidthControl" placeholder="width in px" min=1
+                    max=999>
+                </div>
+                <div class="form-group">
+                  <label for="tableBorderTypeControl">Border style</label>
+                  <select class="form-control" id="tableBorderTypeControl">
+                    <option selected value="default">Choose style</option>
+                    <option>none</option>
+                    <option>dotted</option>
+                    <option>dashed</option>
+                    <option>solid</option>
+                    <option>double</option>
+                    <option>groove</option>
+                    <option>ridge</option>
+                    <option>inset</option>
+                    <option>outset</option>
+                  </select>
+                </div>
+
+              </form>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-primary" id="applyStyleBtn">Apply</button>
+              <p class="description">Choose table width(from 1px to 999px) and border style</p>
+            </div>
+          </div>
+        </div>
+        <!-- Caption card -->
+        <div class="col-lg-4 col-md-4 col-sm-12">
+          <div class="card" id="tableCaptionCard">
+            <div class="card-body">
+              <h4 class="card-title">Change caption</h4>
+              <form>
+                <div class="form-group">
+                  <label for="tableCaptionControl">Table caption</label>
+                  <input type="text" class="form-control" id="tableCaptionControl" placeholder="Без заголовка">
+                </div>
+              </form>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-primary" id="applyCaptionBtn">Apply caption</button>
+              <p class="description">Enter new caption for table</p>
+            </div>
+          </div>
+        </div>
+        <!-- Remove card -->
+        <div class="col-lg-4 col-md-4 col-sm-12">
+          <div class="card" id="tableRemovingCard">
+            <div class="card-body">
+              <h4 class="card-title">Remove</h4>
+              <form>
+                <div class="form-group">
+                  <label>What remove</label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="removeTypeChoiseRadios"
+                      id="removeTypeColumnRadio">
+                    <label class="form-check-label" for="removeTypeColumnRadio">
+                      Column
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="removeTypeChoiseRadios" id="removeTypeRowRadio">
+                    <label class="form-check-label" for="removeTypeRowRadio">
+                      Row
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="tableRemoveColumnControl">Column code</label>
+                  <select class="form-control" id="tableRemoveColumnControl">
+                    <option selected value="default">None</option>
+                  </select>
+
+                  <label for="tableRemoveRowControl">Row number</label>
+                  <input type="number" class="form-control" id="tableRemoveRowControl" placeholder="None">
+                </div>
+              </form>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-primary" id="removeRowColBtn">Remove</button>
+              <p class="description">Choose row or column that you want to remove</p>
+            </div>
+          </div>
+        </div>
+        <!-- Magic card -->
+        <div class="col-lg-4 col-md-4 col-sm-12">
+          <div class="card" id="tableRandomCard">
+            <div class="card-body">
+              <h4 class="card-title">Random choice</h4>
+              <!-- TODO form -->
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-primary">Do smth</button>
+              <p class="description">Some advices for usage this card</p>
+            </div>
+          </div>
+        </div>
+        <!-- Clear card -->
+        <div class="col-lg-4 col-md-4 col-sm-12">
+          <div class="card" id="tableClearCard">
+            <div class="card-body">
+              <h4 class="card-title">Clear</h4>
+              <!-- TODO form -->
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-primary">Do smth</button>
+              <p class="description">Some advices for usage this card</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 </body>
 
