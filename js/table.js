@@ -9,12 +9,17 @@ $(document).ready(function () {
   }
 
   // Set event handlers
-  $("#tableStyleCard form").change(function () { controlButtonUpdate() })
-  $("#applyStyleBtn").click(function () { changeTableStyle() })
+  $("#tableStyleCard form").change(controlButtonUpdate)
+  $("#applyStyleBtn").click(changeTableStyle)
 
-  $("#applyCaptionBtn").click(function () { changeTableCaption() })
+  $("#applyCaptionBtn").click(changeTableCaption)
 
+  $("#tableRemovingCard input[type=radio][name=removeTypeChoiseRadios]").change(changeRemovingType)
+  $("#removeRowColBtn").click(removeRowOrCol)
 
+  $("#magicBtn").click(randomChoice)
+
+  $("#clearBtn").click(clearTableFields)
 })
 
 // Get number of rows and columns from url
@@ -112,6 +117,19 @@ function toLetters(num) {
   let out = mod ? String.fromCharCode(64 + mod) : (--pow, 'Z')
 
   return pow ? toLetters(pow) + out : out
+}
+
+// Return numbers representation of letters
+function toNumbers(word) {
+  let num = 0
+  let len = word.length - 1
+
+  for (let letter in word) {
+    num += (word.charCodeAt(letter) - 64) * (26 ** len)
+    len--
+  }
+
+  return num
 }
 
 // Hide input and save button and show text and delete button
@@ -241,4 +259,74 @@ function changeTableStyle() {
 // Change table caption header
 function changeTableCaption() {
   $("#datatable caption h1").text($("#tableCaptionCard input").val())
+}
+
+// Change active fields according to radios
+function changeRemovingType() {
+  let rowIn = $("#tableRemoveRowControl")
+  let colIn = $("#tableRemoveColumnControl")
+
+  if (this.value == "row") {
+    rowIn.prop("disabled", false)
+    colIn.prop("disabled", true)
+  } else {
+    rowIn.prop("disabled", true)
+    colIn.prop("disabled", false)
+  }
+}
+
+// Remove row or column in the datatable
+function removeRowOrCol() {
+  let type = $("#tableRemovingCard :radio[name=removeTypeChoiseRadios]:checked").val()
+
+  if (type == "row")
+    removeRow()
+  else
+    removeColumn()
+}
+
+// Remove row in the datatable
+function removeRow() {
+  let rowNum = $("#tableRemoveRowControl").val()
+
+  $("#datatable tr").eq(rowNum).remove()
+}
+
+// Remove column in the datatable
+function removeColumn() {
+  let colNum = toNumbers($("#tableRemoveColumnControl").val().toUpperCase())
+
+  $("#datatable tr").each(function () {
+    $(this).find("th,td").filter(`:eq(${colNum})`).remove()
+  })
+}
+
+// Create some *magic*
+function randomChoice() {
+  let table = $("#datatable")
+  let row = Math.floor(Math.random() * (table.find("tr").length - 1)) + 1
+  let col = Math.floor(Math.random() * table.find("tr:eq(1)").find("td").length)
+  let elem = table.find(`tr:eq(${row})`).find(`td:eq(${col})`)
+
+  let color = '#' + Math.floor(Math.random() * 16777215).toString(16)
+  let fontSize = 15 + Math.floor(Math.random() * (25 - 15))
+
+  let method = Math.floor(Math.random() * 4);
+  if (method == 0) {
+    elem.css("background-color", color)
+  } else if (method == 1) {
+    elem.css("color", color)
+  } else if (method == 2) {
+    elem.css("font-size", parseFloat(fontSize) + "pt")
+  } else if (method == 3) {
+    deleteText(elem.find("form"))
+  }
+
+}
+
+// Clean table field
+function clearTableFields() {
+  $("#datatable form").each(function () {
+    deleteText($(this))
+  })
 }
