@@ -2,7 +2,7 @@ $(document).ready(function () {
   let [row = null, col = null] = getArgs()
 
   if (!isArgsValid(row, col)) {
-    // Throw error
+    // TODO Throw error
     alert("Row or col invalid!")
   } else {
     createTable(row, col)
@@ -172,6 +172,7 @@ function editText(form) {
   saveBut.show()
 }
 
+// Get-arguments validation
 function isArgsValid(rowNum, columnNum) {
   if (rowNum == null || columnNum == null)
     return false
