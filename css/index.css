@@ -1,0 +1,9 @@
+/* Table creation form */
+.table-creation-form{
+  margin: 4em 0;
+  position: relative;
+}
+
+.table-creation-form h1{
+  margin: 0 0 0.5em;
+}

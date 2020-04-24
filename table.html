@@ -6,9 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/font-glyphicons.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+  <link rel="stylesheet" type="text/css" href="css/main.css">
   <link rel="stylesheet" type="text/css" href="css/table.css">
   <script src="js/table.js"></script>
 </head>
@@ -16,7 +18,7 @@
 <body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">DTable</a>
+    <a class="navbar-brand" href="#">Awesome Table</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupporedContent" aria-expanded="false" aria-lable="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -25,15 +27,31 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="map.html"> Map</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contacts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="task.html">Task</a>
         </li>
       </ul>
     </div>
   </nav>
 
+
+  <!-- Arert for errors -->
+  <div class="alert alert-danger" role="alert" id="args_invalid_alert" hidden=true>
+    <h4>Table do not exist</h4>
+    Table haven't created yet. Please go back to the main page and set table params.
+    <hr>
+    <a class="btn btn-primary" href="#" role="button">
+      Go back
+    </a>
+  </div>
 
   <!-- Data table -->
   <div class="datatable">
@@ -50,7 +68,7 @@
   </div>
 
   <!-- Control panel -->
-  <div class="control-panel">
+  <div class="control-panel" id="controls">
     <div class="container">
       <h1 class="text-center">Control Panel</h1>
       <div class="row">
@@ -142,7 +160,7 @@
               </form>
             </div>
             <div class="card-footer">
-              <button class="btn btn-primary" id="removeRowColBtn">Remove</button>
+              <button class="btn btn-danger" id="removeRowColBtn">Remove</button>
               <p class="description">Choose row(1,2...) or column(a,b...) that you want to remove</p>
             </div>
           </div>
@@ -154,8 +172,8 @@
               <h4 class="card-title">Random choice</h4>
             </div>
             <div class="card-footer">
-              <button class="btn btn-primary" id="magicBtn">Magic</button>
-              <p class="description">Just click on the button ;)</p>
+              <button class="btn btn-success" id="magicBtn">Magic</button>
+              <p class="description">Keep calm and click on the button ;)</p>
             </div>
           </div>
         </div>
@@ -166,7 +184,7 @@
               <h4 class="card-title">Clear table</h4>
             </div>
             <div class="card-footer">
-              <button class="btn btn-primary" id="clearBtn">Clear</button>
+              <button class="btn btn-warning" id="clearBtn">Clear</button>
               <p class="description">Clear all table fields</p>
             </div>
           </div>
@@ -175,6 +193,17 @@
     </div>
   </div>
 
+  <!-- Footer -->
+  <footer class="page-footer font-small bg-dark">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">
+      © ITMO University Vyazovoy Alexey 2020 N3456
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
 
 </body>
 

@@ -1,9 +1,3 @@
-/* Navbar */
-.nav-link, .navbar-brand{color: #f4f4f4; cursor: pointer;}
-.nav-link{ margin-right: 1em !important;}
-/*.nav-link:hover{background: #444a50; color:#343a40}*/
-.navbar-collapse{justify-content: flex-end;}
-
 /* Control panel */
 .control-panel{
   margin: 4em 0;

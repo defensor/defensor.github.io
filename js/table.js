@@ -2,8 +2,7 @@ $(document).ready(function () {
   let [row = null, col = null] = getArgs()
 
   if (!isArgsValid(row, col)) {
-    // TODO Throw error
-    alert("Row or col invalid!")
+    showError()
   } else {
     createTable(row, col)
   }
@@ -81,7 +80,7 @@ function tableData() {
   let saveBut = $("<button>")
   saveBut.attr("type", "button")
   saveBut.attr("class", "btn btn-success save-button")
-  saveBut.text("Save")
+  saveBut.append($("<span class='glyphicon glyphicon-floppy-disk'></span>"))
   saveBut.click(function () { saveText(form) })
 
   form.append(saveBut)
@@ -98,7 +97,7 @@ function tableData() {
   let delBut = $("<button>")
   delBut.attr("type", "button")
   delBut.attr("class", "btn btn-danger delete-button")
-  delBut.text("Delete")
+  delBut.append($("<span class='glyphicon glyphicon-trash'></span>"))
   delBut.click(function () { deleteText(form) })
   delBut.hide()
 
@@ -329,4 +328,10 @@ function clearTableFields() {
   $("#datatable form").each(function () {
     deleteText($(this))
   })
+}
+
+function showError() {
+  $("#args_invalid_alert").removeAttr("hidden")
+  $("#datatable").attr("hidden", true)
+  $("#controls").attr("hidden", true)
 }
