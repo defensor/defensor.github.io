@@ -226,6 +226,13 @@ function controlButtonUpdate() {
 
   if (!!width) {
     buttonCaption += ` ${width}px`
+    if (width < 1 || width > 999) {
+      button.prop("disabled", true)
+      $("#changeWidthErrorModalBox").modal("show")
+    }
+    else {
+      button.prop("disabled", false)
+    }
   }
 
   if (style != "default") {
@@ -288,16 +295,28 @@ function removeRowOrCol() {
 function removeRow() {
   let rowNum = $("#tableRemoveRowControl").val()
 
-  $("#datatable tr").eq(rowNum).remove()
+  if (rowNum < 1 || rowNum > ($("#datatable").find("tr").length - 1)) {
+    $("#removeRowErrorModalBox").modal('show')
+  }
+  else {
+    $("#datatable tr").eq(rowNum).remove()
+    refreshRowNumbers()
+  }
 }
 
 // Remove column in the datatable
 function removeColumn() {
   let colNum = toNumbers($("#tableRemoveColumnControl").val().toUpperCase())
 
-  $("#datatable tr").each(function () {
-    $(this).find("th,td").filter(`:eq(${colNum})`).remove()
-  })
+  if (colNum < 1 || colNum > ($("#datatable tr:first").find("th").length - 1)) {
+    $("#removeColumnErrorModalBox").modal('show')
+  }
+  else {
+    $("#datatable tr").each(function () {
+      $(this).find("th,td").filter(`:eq(${colNum})`).remove()
+    })
+    refreshColumnCodes()
+  }
 }
 
 // Create some *magic*
@@ -334,4 +353,18 @@ function showError() {
   $("#args_invalid_alert").removeAttr("hidden")
   $("#datatable").attr("hidden", true)
   $("#controls").attr("hidden", true)
+}
+
+function refreshRowNumbers() {
+  let i = 1;
+  $("#datatable tr:gt(0)").each(function () {
+    $(this).find("th").text(i++)
+  })
+}
+
+function refreshColumnCodes() {
+  let i = 1;
+  $("#datatable tr:first").find("th:gt(0)").each(function () {
+    $(this).text(toLetters(i++))
+  })
 }

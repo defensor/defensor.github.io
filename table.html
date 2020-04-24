@@ -8,35 +8,29 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="css/font-glyphicons.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <link rel="stylesheet" type="text/css" href="css/table.css">
-  <script src="js/table.js"></script>
 </head>
 
 <body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Awesome Table</a>
+    <a class="navbar-brand" href="index.html">Awesome Table</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupporedContent" aria-expanded="false" aria-lable="Toggle navigation">
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="index.html">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="map.html"> Map</a>
+          <a class="nav-link" href="map.html">Map</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="contact.html">Contacts</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="task.html">Task</a>
         </li>
       </ul>
     </div>
@@ -193,6 +187,72 @@
     </div>
   </div>
 
+  <!-- Change table width error modal -->
+  <div id="changeWidthErrorModalBox" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Invalid table width value</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <!-- Основное содержимое модального окна -->
+        <div class="modal-body">
+          Check the table width value and try again.
+        </div>
+        <!-- Футер модального окна -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Remove row error modal -->
+  <div id="removeRowErrorModalBox" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Invalid row number</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <!-- Основное содержимое модального окна -->
+        <div class="modal-body">
+          Check the row number and try again.
+        </div>
+        <!-- Футер модального окна -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Remove column error modal -->
+  <div id="removeColumnErrorModalBox" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Invalid column code</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <!-- Основное содержимое модального окна -->
+        <div class="modal-body">
+          Check the column code and try again.
+        </div>
+        <!-- Футер модального окна -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="page-footer font-small bg-dark">
 
@@ -204,7 +264,12 @@
 
   </footer>
   <!-- Footer -->
-
+  <!-- Подключаем jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- Подключаем Bootstrap JS -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- Наши скрипты -->
+  <script src="js/table.js"></script>
 </body>
 
 </html>

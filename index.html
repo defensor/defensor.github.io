@@ -8,73 +8,68 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/font-glyphicons.css">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
-    <script src="js/script.js"></script>
 </head>
 
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Awesome Table</a>
+        <a class="navbar-brand" href="index.html">Awesome Table</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupporedContent" aria-expanded="false" aria-lable="Toggle navigation">
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="map.html"> Map</a>
+                    <a class="nav-link" href="map.html">Map</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">Contacts</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="task.html">Task</a>
-                </li>
             </ul>
         </div>
     </nav>
-    <!-- Navbar -->
 
     <!-- Table creation form -->
     <div class="table-creation-form">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12 ml-auto mr-auto">
-                <div class="jumbotron">
-                    <h1 class="display-4">Awesome table</h1>
-                    <p class="lead">Create your own awesome table using the form below!</p>
-                    <hr class="my-4">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-12">
-                            <img src="images/table.png" class="img-fluid">
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-sm-12">
-                            <form>
-                                <div class="form-group">
-                                    <label for="inputRowNumber">Number of rows</label>
-                                    <input type="number" class="form-control" id="inputRowNumber" min=1 max=999 value=1
-                                        aria-describedby="rowHelpInline">
-                                    <small id="rowHelpInline" class="text-muted">
-                                        Must be from 1 to 999.
-                                    </small>
-                                </div>
-                                <div class="form-group">
-                                    <label for="inputColNumer">Number of columns</label>
-                                    <input type="number" class="form-control" id="inputColumnNumber" min=1 max=999
-                                        value=1 aria-describedby="columnHelpInline">
-                                    <small id="columnHelpInline" class="text-muted">
-                                        Must be from 1 to 999.
-                                    </small>
-                                </div>
-                            </form>
-                            <a class="btn btn-success btn-lg" id="createTableBtn" href="#" role="button">Create</a>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 ml-auto mr-auto">
+                    <div class="jumbotron">
+                        <h1 class="display-4">Awesome table</h1>
+                        <p class="lead">Create your own awesome table using the form below!</p>
+                        <hr class="my-4">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <img src="images/table.png" class="img-fluid">
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-12">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="inputRowNumber">Number of rows</label>
+                                        <input type="number" class="form-control" id="inputRowNumber" min=1 max=999
+                                            value=1 aria-describedby="rowHelpInline">
+                                        <small id="rowHelpInline" class="text-muted">
+                                            Must be from 1 to 999.
+                                        </small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputColNumer">Number of columns</label>
+                                        <input type="number" class="form-control" id="inputColumnNumber" min=1 max=999
+                                            value=1 aria-describedby="columnHelpInline">
+                                        <small id="columnHelpInline" class="text-muted">
+                                            Must be from 1 to 999.
+                                        </small>
+                                    </div>
+                                </form>
+                                <a class="btn btn-success btn-lg" id="createTableBtn" href="#" role="button">Create</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -95,6 +90,12 @@
     </footer>
     <!-- Footer -->
 
+    <!-- Подключаем jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Подключаем Bootstrap JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Наши скрипты -->
+    <script src="js/script.js"></script>
 </body>
 
 </html>
